@@ -468,7 +468,7 @@
             position: relative;
             max-width: 560px;
             width: 100%;
-            padding: 52px clamp(24px, 5vw, 52px);
+            padding: 20px clamp(24px, 5vw, 52px);
             background: linear-gradient(145deg, var(--bg-card), #1a0314);
             border-radius: var(--radius-xl);
             transform: scale(.9) translateY(20px);
@@ -506,7 +506,7 @@
         }
 
         .modal-lock-icon {
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 16px;
             animation: floatStar 3s ease-in-out infinite;
         }
@@ -1502,14 +1502,17 @@
         /* ══ CURTAIN ══════════════════════════════════════════ */
         function openCurtain() {
             const curtain = document.getElementById('curtain');
+            const curtaincenter = document.getElementById('curtain-center');
             curtain.classList.add('open');
+            curtaincenter.style.opacity = '0';
+
             setTimeout(() => {
                 curtain.style.display = 'none';
                 playMusic();
                 document.getElementById('music-btn').classList.add('visible');
                 triggerReveal();
                 startTyping();
-            }, 1500);
+            }, 1000);
         }
 
         /* ══ MUSIC ════════════════════════════════════════════ */
@@ -1561,7 +1564,7 @@
                     if (li < lines.length) {
                         text += '\n';
                         el.innerHTML = text.split('\n').join('<br/>');
-                        setTimeout(type, 500); 
+                        setTimeout(type, 500);
                     }
                 }
             }
